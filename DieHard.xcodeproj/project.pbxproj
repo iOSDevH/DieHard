@@ -11,6 +11,13 @@
 		8D034A2A2798F63000BCAD1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D034A292798F63000BCAD1C /* ContentView.swift */; };
 		8D034A2C2798F63100BCAD1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D034A2B2798F63100BCAD1C /* Assets.xcassets */; };
 		8D034A2F2798F63100BCAD1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D034A2E2798F63100BCAD1C /* Preview Assets.xcassets */; };
+		8D034A362799A1F700BCAD1C /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D034A352799A1F700BCAD1C /* Dice.swift */; };
+		8D034A382799A33F00BCAD1C /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D034A372799A33F00BCAD1C /* Roll.swift */; };
+		8D034A3F2799A4E900BCAD1C /* HistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D034A3E2799A4E900BCAD1C /* HistoryScreen.swift */; };
+		8D1047842799F45C001EFCEC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1047832799F45C001EFCEC /* AppState.swift */; };
+		8D1047872799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1047862799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift */; };
+		8D270458279A13030025AE70 /* RollScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D270457279A13030025AE70 /* RollScreen.swift */; };
+		8D27045A279A13490025AE70 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D270459279A13490025AE70 /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		8D034A292798F63000BCAD1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D034A2B2798F63100BCAD1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D034A2E2798F63100BCAD1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D034A352799A1F700BCAD1C /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		8D034A372799A33F00BCAD1C /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
+		8D034A3E2799A4E900BCAD1C /* HistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreen.swift; sourceTree = "<group>"; };
+		8D1047832799F45C001EFCEC /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8D1047862799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
+		8D270457279A13030025AE70 /* RollScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollScreen.swift; sourceTree = "<group>"; };
+		8D270459279A13490025AE70 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				8D034A272798F63000BCAD1C /* DieHardApp.swift */,
-				8D034A292798F63000BCAD1C /* ContentView.swift */,
+				8D1047852799F4B1001EFCEC /* Extenstions */,
+				8D034A392799A3EF00BCAD1C /* Models */,
+				8D034A3A2799A3FF00BCAD1C /* Screens */,
+				8D034A3B2799A41000BCAD1C /* ViewsModels */,
 				8D034A2B2798F63100BCAD1C /* Assets.xcassets */,
 				8D034A2D2798F63100BCAD1C /* Preview Content */,
 			);
@@ -65,6 +82,42 @@
 				8D034A2E2798F63100BCAD1C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D034A392799A3EF00BCAD1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D034A372799A33F00BCAD1C /* Roll.swift */,
+				8D034A352799A1F700BCAD1C /* Dice.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8D034A3A2799A3FF00BCAD1C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8D034A292798F63000BCAD1C /* ContentView.swift */,
+				8D270457279A13030025AE70 /* RollScreen.swift */,
+				8D034A3E2799A4E900BCAD1C /* HistoryScreen.swift */,
+				8D270459279A13490025AE70 /* SettingsScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8D034A3B2799A41000BCAD1C /* ViewsModels */ = {
+			isa = PBXGroup;
+			children = (
+				8D1047832799F45C001EFCEC /* AppState.swift */,
+			);
+			path = ViewsModels;
+			sourceTree = "<group>";
+		};
+		8D1047852799F4B1001EFCEC /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+				8D1047862799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift */,
+			);
+			path = Extenstions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1047872799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift in Sources */,
+				8D27045A279A13490025AE70 /* SettingsScreen.swift in Sources */,
 				8D034A2A2798F63000BCAD1C /* ContentView.swift in Sources */,
+				8D1047842799F45C001EFCEC /* AppState.swift in Sources */,
+				8D034A362799A1F700BCAD1C /* Dice.swift in Sources */,
+				8D270458279A13030025AE70 /* RollScreen.swift in Sources */,
+				8D034A382799A33F00BCAD1C /* Roll.swift in Sources */,
+				8D034A3F2799A4E900BCAD1C /* HistoryScreen.swift in Sources */,
 				8D034A282798F63000BCAD1C /* DieHardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +332,7 @@
 				DEVELOPMENT_TEAM = UZLGAARSJ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DieHard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -301,6 +362,7 @@
 				DEVELOPMENT_TEAM = UZLGAARSJ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DieHard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
