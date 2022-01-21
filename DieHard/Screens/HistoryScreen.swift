@@ -10,6 +10,8 @@ import SwiftUI
 struct HistoryScreen: View {
     @EnvironmentObject var appState: AppState
     
+    @State private var clearHistoryAlert = false
+    
     var body: some View {
         
         NavigationView {
@@ -39,26 +41,21 @@ struct HistoryScreen: View {
                 }
             }
             .navigationTitle("History")
-            .onAppear(perform: navBarColour)
+            .onAppear { navBarColour(colourIndex: appState.selectedColourIndex) }
             .onChange(of: appState.selectedColourIndex) { _ in
-                navBarColour()
+                navBarColour(colourIndex: appState.selectedColourIndex)
+            }
+            .toolbar {
+                Button("Clear History") {
+                    clearHistoryAlert = true
+                }
+            }
+            .alert("Are you sure?", isPresented: $clearHistoryAlert) {
+                Button(role: .destructive, action: appState.clearHistory) {
+                    Text("OK")
+                }
             }
         }
-    }
-    
-    func navBarColour() {
-        let colours: [UIColor] = [.systemRed, .systemYellow, .systemGreen, .systemPurple, .systemOrange, .systemBlue, .white, .systemBrown]
-        let navBarAppearance = UINavigationBarAppearance()
-        
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: colours[appState.selectedColourIndex]]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: colours[appState.selectedColourIndex]]
-        navBarAppearance.configureWithTransparentBackground()
-        
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-        UINavigationBar.appearance().compactAppearance = navBarAppearance
-        UINavigationBar.appearance().tintColor = .red
-        
     }
 }
 

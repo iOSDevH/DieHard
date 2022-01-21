@@ -25,7 +25,7 @@ struct SettingsScreen: View {
                             .foregroundColor(appState.colours[appState.selectedColourIndex])
                         
                         Image(systemName: "die.face.\(appState.dice.count)")
-                            .font(.title)
+                            .font(.largeTitle)
                             .foregroundColor(appState.colours[appState.selectedColourIndex])
                         
                         Spacer()
@@ -79,27 +79,12 @@ struct SettingsScreen: View {
                 }
                 .padding()
                 .navigationTitle("Settings")
-                .onAppear(perform: navBarColour)
+                .onAppear { navBarColour(colourIndex: appState.selectedColourIndex) }
                 .onChange(of: appState.selectedColourIndex) { _ in
-                    navBarColour()
+                    navBarColour(colourIndex: appState.selectedColourIndex)
                 }
             }
         }
-    }
-    
-    func navBarColour() {
-        let colours: [UIColor] = [.systemRed, .systemYellow, .systemGreen, .systemPurple, .systemOrange, .systemBlue, .white, .systemBrown]
-        let navBarAppearance = UINavigationBarAppearance()
-        
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: colours[appState.selectedColourIndex]]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: colours[appState.selectedColourIndex]]
-        navBarAppearance.configureWithTransparentBackground()
-        
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-        UINavigationBar.appearance().compactAppearance = navBarAppearance
-        //UINavigationBar.appearance().tintColor = .red
-        
     }
 }
 

@@ -10,7 +10,11 @@ import SwiftUI
 class AppState: ObservableObject {
     @Published var history: [Roll]
     @Published var dice: [Dice]
-    @AppStorage("selectedColourIndex") var selectedColourIndex: Int = 0
+    @AppStorage("selectedColourIndex") var selectedColourIndex: Int = 0 {
+        willSet {
+            objectWillChange.send()
+        }
+    }
     
     let colours: [Color] = [.red, .yellow, .green, .purple, .orange, .blue, .white, .brown]
     
@@ -68,6 +72,11 @@ class AppState: ObservableObject {
     func addToHistory(_ dice: [Dice]) {
         let roll = Roll(dice: self.dice, date: Date())
         history.append(roll)
+    }
+    
+    func clearHistory() {
+        history = []
+        saveData()
     }
     
     func increaseDice() {

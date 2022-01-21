@@ -18,6 +18,7 @@
 		8D1047872799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1047862799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift */; };
 		8D270458279A13030025AE70 /* RollScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D270457279A13030025AE70 /* RollScreen.swift */; };
 		8D27045A279A13490025AE70 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D270459279A13490025AE70 /* SettingsScreen.swift */; };
+		8D27045C279A6EB90025AE70 /* NavBarColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27045B279A6EB90025AE70 /* NavBarColours.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		8D1047862799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		8D270457279A13030025AE70 /* RollScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollScreen.swift; sourceTree = "<group>"; };
 		8D270459279A13490025AE70 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		8D27045B279A6EB90025AE70 /* NavBarColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarColours.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1047862799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift */,
+				8D27045B279A6EB90025AE70 /* NavBarColours.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				8D1047872799F4BF001EFCEC /* FileManager-DocumentsDirectory.swift in Sources */,
 				8D27045A279A13490025AE70 /* SettingsScreen.swift in Sources */,
 				8D034A2A2798F63000BCAD1C /* ContentView.swift in Sources */,
+				8D27045C279A6EB90025AE70 /* NavBarColours.swift in Sources */,
 				8D1047842799F45C001EFCEC /* AppState.swift in Sources */,
 				8D034A362799A1F700BCAD1C /* Dice.swift in Sources */,
 				8D270458279A13030025AE70 /* RollScreen.swift in Sources */,

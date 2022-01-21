@@ -30,7 +30,7 @@ struct ContentView: View {
                     Text("Settings")
                 }
         }
-        .accentColor(appState.colours[appState.selectedColourIndex])
+        .tint(appState.colours[appState.selectedColourIndex])
     }
 }
 

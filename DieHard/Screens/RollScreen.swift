@@ -10,6 +10,9 @@ import SwiftUI
 struct RollScreen: View {
     @EnvironmentObject var appState: AppState
     
+    @State private var rollingFeedback = UINotificationFeedbackGenerator()
+    @State private var isRolling = false
+    
     var oddDice: [Dice] {
         var oddDice = [Dice]()
         
@@ -76,7 +79,9 @@ struct RollScreen: View {
                     
                     VStack {
                         Button {
+                            rollingFeedback.prepare()
                             appState.roll()
+                            rollingFeedback.notificationOccurred(.warning)
                         } label: {
                             Label("Roll", systemImage: "die.face.6")
                                 .font(.largeTitle)
@@ -92,27 +97,12 @@ struct RollScreen: View {
                 }
             }
             .preferredColorScheme(.dark)
-            .onAppear(perform: navBarColour)
+            .onAppear { navBarColour(colourIndex: appState.selectedColourIndex) }
             .onChange(of: appState.selectedColourIndex) { _ in
-                navBarColour()
+                navBarColour(colourIndex: appState.selectedColourIndex)
             }
             
         }
-    }
-    
-    func navBarColour() {
-        let colours: [UIColor] = [.systemRed, .systemYellow, .systemGreen, .systemPurple, .systemOrange, .systemBlue, .white, .systemBrown]
-        let navBarAppearance = UINavigationBarAppearance()
-        
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: colours[appState.selectedColourIndex]]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: colours[appState.selectedColourIndex]]
-        navBarAppearance.configureWithTransparentBackground()
-        
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-        UINavigationBar.appearance().compactAppearance = navBarAppearance
-        UINavigationBar.appearance().tintColor = .red
-        
     }
 }
 
