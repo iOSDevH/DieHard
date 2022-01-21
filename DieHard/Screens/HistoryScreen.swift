@@ -38,6 +38,7 @@ struct HistoryScreen: View {
                                 .offset(x: 10)
                         }
                     }
+                    .onDelete(perform: remove)
                 }
             }
             .navigationTitle("History")
@@ -46,7 +47,7 @@ struct HistoryScreen: View {
                 navBarColour(colourIndex: appState.selectedColourIndex)
             }
             .toolbar {
-                Button("Clear History") {
+                Button("Clear") {
                     clearHistoryAlert = true
                 }
             }
@@ -55,6 +56,12 @@ struct HistoryScreen: View {
                     Text("OK")
                 }
             }
+        }
+    }
+    
+    func remove(at offsets: IndexSet) {
+        for i in offsets {
+            appState.removeFromHistory(at: i)
         }
     }
 }

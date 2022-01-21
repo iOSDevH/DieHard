@@ -15,6 +15,9 @@ struct DieHardApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(appState)
+                .onAppear {
+                    UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+                }
         }
     }
 }

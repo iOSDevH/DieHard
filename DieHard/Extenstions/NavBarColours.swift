@@ -14,7 +14,7 @@ extension View {
         
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: colours[colourIndex]]
         navBarAppearance.titleTextAttributes = [.foregroundColor: colours[colourIndex]]
-        navBarAppearance.configureWithTransparentBackground()
+        navBarAppearance.configureWithOpaqueBackground()
         
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
