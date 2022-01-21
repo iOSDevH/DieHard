@@ -12,6 +12,7 @@ struct RollScreen: View {
     
     var oddDice: [Dice] {
         var oddDice = [Dice]()
+        
         for i in 0..<appState.dice.count {
             if i % 2 == 0 {
                 oddDice.append(appState.dice[i])
@@ -23,6 +24,7 @@ struct RollScreen: View {
     
     var evenDice: [Dice] {
         var evenDice = [Dice]()
+        
         for i in 0..<appState.dice.count {
             if i % 2 == 1 {
                 evenDice.append(appState.dice[i])
@@ -41,28 +43,32 @@ struct RollScreen: View {
                 VStack {
                     Text("You rolled:")
                         .font(.largeTitle)
-                        .foregroundColor(.red)
+                        .foregroundColor(appState.colours[appState.selectedColourIndex])
                         .padding(.top)
                     
                     Text("\(appState.rollTotal)")
                         .font(.system(size: geo.size.width / 4))
-                        .foregroundColor(.red)
+                        .foregroundColor(appState.colours[appState.selectedColourIndex])
                     
                     
                     HStack {
-                        ForEach(0..<oddDice.count) { index in
-                            Image(systemName: "die.face.\(oddDice[index].currentRoll)")
-                                .font(.system(size: geo.size.width / 4))
-                                .foregroundColor(.red)
+                        ForEach(oddDice, id: \.id) { die in
+                           // if index % 2 == 0 {
+                                Image(systemName: "die.face.\(die.currentRoll)")
+                                    .font(.system(size: geo.size.width / 4))
+                                    .foregroundColor(appState.colours[appState.selectedColourIndex])
+                           // }
                         }
                     }
                     .padding()
                     
                     HStack {
-                        ForEach(0..<evenDice.count) { index in
-                            Image(systemName: "die.face.\(evenDice[index].currentRoll)")
+                        ForEach(evenDice, id: \.id) { die in
+                            //if index % 2 == 1 {
+                            Image(systemName: "die.face.\(die.currentRoll)")
                                 .font(.system(size: geo.size.width / 4))
-                                .foregroundColor(.red)
+                                .foregroundColor(appState.colours[appState.selectedColourIndex])
+                            //}
                         }
                     }
                     
@@ -75,10 +81,10 @@ struct RollScreen: View {
                             Label("Roll", systemImage: "die.face.6")
                                 .font(.largeTitle)
                         }
-                        .foregroundColor(.white)
+                        .foregroundColor(appState.colours[appState.selectedColourIndex] == .white ? .black : .white)
                         .padding(10)
                         .frame(width: geo.size.width / 1.1)
-                        .background(.red)
+                        .background(appState.colours[appState.selectedColourIndex])
                         .clipShape(Capsule())
                         
                     }
@@ -86,14 +92,21 @@ struct RollScreen: View {
                 }
             }
             .preferredColorScheme(.dark)
+            .onAppear(perform: navBarColour)
+            .onChange(of: appState.selectedColourIndex) { _ in
+                navBarColour()
+            }
+            
         }
     }
     
-    init() {
+    func navBarColour() {
+        let colours: [UIColor] = [.systemRed, .systemYellow, .systemGreen, .systemPurple, .systemOrange, .systemBlue, .white, .systemBrown]
         let navBarAppearance = UINavigationBarAppearance()
         
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemRed]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemRed]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: colours[appState.selectedColourIndex]]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: colours[appState.selectedColourIndex]]
+        navBarAppearance.configureWithTransparentBackground()
         
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         TabView {
@@ -29,7 +30,7 @@ struct ContentView: View {
                     Text("Settings")
                 }
         }
-        .accentColor(.red)
+        .accentColor(appState.colours[appState.selectedColourIndex])
     }
 }
 
