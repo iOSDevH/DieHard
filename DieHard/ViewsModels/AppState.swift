@@ -65,8 +65,6 @@ class AppState: ObservableObject {
             let dice = Dice(currentRoll: Int.random(in: 1..<dice[i].numberOfSides))
             self.dice[i] = dice
         }
-        //addToHistory(dice)
-        //saveData()
     }
     
     func finishRoll() {
@@ -76,7 +74,7 @@ class AppState: ObservableObject {
     
     func addToHistory(_ dice: [Dice]) {
         let roll = Roll(dice: self.dice, date: Date())
-        history.append(roll)
+        history.insert(roll, at: 0)
     }
     
     func removeFromHistory(at index: Int) {
